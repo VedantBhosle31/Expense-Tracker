@@ -7,11 +7,11 @@ const user = require("./user");
 const app = express();
 
 app.use(express.json());
+app.use(bodyParser.json());
 app.use("/", groups);
 app.use("/", transactions);
 app.use("/", user);
 // Middleware to parse JSON requests
-app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
   res.send("Hello World");
